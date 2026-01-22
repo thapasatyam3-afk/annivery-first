@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>365 Days of Us | Forever To Go</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Playfair+Display:italic,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        :root {
+            --soft-pink: #ffe5ec;
+            --heart-pink: #ff85a1;
+            --deep-rose: #ff4d6d;
+            --glass: rgba(255, 255, 255, 0.7);
+        }
+
+        body, html {
+            margin: 0; padding: 0; 
+            height: 100%; width: 100%;
+            overflow: hidden;
+            background: linear-gradient(180deg, var(--soft-pink) 0%, #ffc2d1 100%);
+            font-family: 'Poppins', sans-serif; color: #4a4a4a;
+        }
+
+        #heartCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+
+        .container-fluid { 
+            height: 100vh; 
+            width: 100vw;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            position: relative; 
+            z-index: 10; 
+        }
+
+        .section { 
+            display: none; 
+            flex-direction: column; 
+            align-items: center; 
+            max-width: 650px; 
+            width: 85%; 
+            text-align: center; 
+            margin: auto;
+        }
+        .active { display: flex; }
+
+        .glass-card {
+            background: var(--glass); backdrop-filter: blur(10px);
+            padding: 25px; border-radius: 25px; border: 1px solid white;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.15);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .polaroid {
+            background: white; padding: 10px 10px 35px 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); transform: rotate(-1.5deg);
+            border-radius: 2px; margin-bottom: 20px; 
+            width: 250px; 
+            max-width: 80%;
+        }
+
+        h1 { font-family: 'Dancing Script', cursive; font-size: 2.8rem; color: var(--deep-rose); margin: 10px 0; }
+        .story-text { font-size: 1rem; line-height: 1.6; }
+
+        .falling-container {
+            height: 150px; width: 150px; position: relative; margin: 10px auto;
+        }
+        .falling-boy {
+            font-size: 60px; position: absolute; width: 100%;
+            animation: fallInLove 3s infinite ease-in-out;
+            left: 0;
+        }
+        @keyframes fallInLove {
+            0% { transform: translateY(-30px) rotate(0deg); opacity: 0; }
+            50% { transform: translateY(30px) rotate(20deg); opacity: 1; }
+            100% { transform: translateY(80px) rotate(-10deg); opacity: 0; }
+        }
+
+        .btn-love {
+            background: var(--deep-rose); color: white; border: none;
+            padding: 12px 35px; border-radius: 50px; font-weight: 600;
+            cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+            margin-top: 20px;
+            font-size: 1rem;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .btn-love:hover { transform: scale(1.05); background: #e63946; }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .story-text { font-size: 0.95rem; }
+            .polaroid { width: 200px; padding-bottom: 30px; }
+            .polaroid img { height: 180px !important; }
+            .glass-card { padding: 20px; }
+            .falling-boy { font-size: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="heartCanvas"></canvas>
+
+    <div class="container-fluid">
+        <div class="section active animate__animated animate__fadeIn" id="p1">
+            <h1 class="animate__animated animate__pulse animate__infinite">Hi Gorgeous...</h1>
+            <p class="story-text">I was just sitting here thinking about us. <br>Press the button to see the best year of my life.</p>
+            <button class="btn-love" onclick="nextPage()">Start Our Journey</button>
+        </div>
+
+        <div class="section animate__animated" id="p2">
+            <h1>The Evolution</h1>
+            <div class="glass-card">
+                <p class="story-text">It started with a <b>Hinge</b> match, moved to <b>Instagram</b> DMs, and then finally... <b>Real Life</b>. Every step made me realize one thing: I never want to let you go.</p>
+                <div style="font-size: 35px; margin-top: 10px;">📱 ➔ 📸 ➔ 👩‍❤️‍👨</div>
+            </div>
+            <button class="btn-love" onclick="nextPage()">The First Spark</button>
+        </div>
+
+        <div class="section animate__animated" id="p3">
+            <h1>The Early Days</h1>
+            <div class="polaroid">
+                <img src="WhatsApp Image 2026-01-22 at 3.40.20 PM (1).jpeg" style="width:100%; height:220px; object-fit:cover;" alt="Early Days">
+                <p style="font-family: 'Dancing Script'; margin-top:10px; font-size:1.2rem;">Back when it all began...</p>
+            </div>
+            <div class="glass-card">
+                <p class="story-text">I still remember the butterfly feeling in my stomach every time my phone lit up with your name. I knew from the first "Hello" that you were different.</p>
+            </div>
+            <button class="btn-love" onclick="nextPage()">That One Moment</button>
+        </div>
+
+        <div class="section animate__animated" id="p4">
+            <h1>That First Kiss...</h1>
+            <div class="polaroid">
+                <img src="WhatsApp Image 2026-01-22 at 3.27.27 PM.jpeg" style="width:100%; height:220px; object-fit:cover;" alt="First Date">
+                <p style="font-family: 'Dancing Script'; margin-top:10px; font-size:1.2rem;">The moment time stopped.</p>
+            </div>
+            <div class="glass-card">
+                <p class="story-text">I still remember it so clearly. I was <b>shivering</b>, my heart was thumping—but it was perfect.</p>
+            </div>
+            <button class="btn-love" onclick="nextPage()">My Safe Haven</button>
+        </div>
+
+        <div class="section animate__animated" id="p5">
+            <h1>My Support System</h1>
+            <div class="glass-card">
+                <p class="story-text">Through the highs and the lows, you've been my constant. Thank you for listening to my rants, calming my anxieties, and believing in me when I didn't believe in myself. 🕊️</p>
+                <div style="font-size: 40px; margin-top: 10px;">🫂✨❤️</div>
+            </div>
+            <button class="btn-love" onclick="nextPage()">Our Adventures</button>
+        </div>
+
+        <div class="section animate__animated" id="p6">
+            <h1>Adventure Partners</h1>
+            <div class="polaroid" style="transform: rotate(-2deg);">
+                <img src="WhatsApp Image 2026-01-22 at 3.40.20 PM.jpeg" style="width:100%; height:220px; object-fit:cover;" alt="Our Travels">
+                <p style="font-family: 'Dancing Script'; margin-top:10px; font-size:1.2rem;"></p>
+            </div>
+            <div class="glass-card">
+                <p class="story-text">From late night walks to doing naughty things, every place becomes my favorite place because you are by my side. </p>
+            </div>
+            <button class="btn-love" onclick="nextPage()">The Spicy Bits</button>
+        </div>
+
+        <div class="section animate__animated" id="p7">
+            <h1>Midnight Memories</h1>
+            <div class="glass-card">
+                <p class="story-text">Those <b>late night walks</b>, the deep talks, and all the <b>naughty things</b> we did... 😉 <br> Every memory is burned into my heart.</p>
+                <div style="font-size: 35px; margin-top: 10px;">🌙 🔥 🤫</div>
+            </div>
+            <button class="btn-love" onclick="nextPage()">Keep Going</button>
+        </div>
+
+        <div class="section animate__animated" id="p8">
+            <h2 style="font-family: 'Dancing Script'; color: var(--deep-rose); font-size: 2rem;">Falling for you...</h2>
+            <div class="falling-container">
+                <div class="falling-boy">🙋‍♂️</div>
+                <div style="position:absolute; bottom:0; width:100%; font-size:30px;">💖💖💖</div>
+            </div>
+            <div class="glass-card">
+                <p class="story-text">
+                    I'm the luckiest person in this world. You are my home, my peace, and my greatest adventure.
+                </p>
+            </div>
+            <button class="btn-love" onclick="nextPage()">The Milestone</button>
+        </div>
+
+        <div class="section animate__animated" id="p9">
+            <span style="letter-spacing: 5px; color: var(--deep-rose); font-weight: bold; font-size: 0.8rem;">TOUCH WOOD 🧿</span>
+            <h1>BOOM! 1 Year.</h1>
+            <div class="polaroid" style="transform: rotate(2deg);">
+                <img src="WhatsApp Image 2026-01-22 at 3.40.19 PM.jpeg" style="width:100%; height:220px; object-fit:cover;" alt="Anniversary">
+            </div>
+            <p class="story-text">365 days of "I love yous." It's just the beginning.</p>
+            <button class="btn-love" onclick="nextPage()">My Final Message</button>
+        </div>
+
+        <div class="section animate__animated" id="p10">
+            <h1>Always & Forever</h1>
+            <div class="glass-card">
+                <p class="story-text">
+                    I love you so much, <b>Gorgeous</b>. You aren't just my partner; you're my soulmate. Here’s to a lifetime of loving you. 
+                </p>
+                <h3 style="font-family: 'Playfair Display'; margin-top: 15px; font-size: 1.2rem;">Infinite years to go... ♾️👩‍❤️‍👨🧿</h3>
+            </div>
+            <p style="margin-top: 15px; font-style: italic; font-size: 0.9rem;">Happy Anniversary, My Love!</p>
+            <button class="btn-love" onclick="nextPage()">Replay Our Story</button>
+        </div>
+    </div>
+
+    <script>
+        let current = 1;
+        const total = 10;
+
+        function nextPage() {
+            const out = document.getElementById('p' + current);
+            out.classList.remove('animate__fadeIn', 'animate__zoomIn');
+            out.classList.add('animate__fadeOut');
+            
+            setTimeout(() => {
+                out.style.display = 'none';
+                out.classList.remove('animate__fadeOut');
+                current = (current >= total) ? 1 : current + 1;
+                const next = document.getElementById('p' + current);
+                next.style.display = 'flex';
+                next.classList.add('animate__zoomIn');
+            }, 500);
+        }
+
+        // Heart Background
+        const canvas = document.getElementById('heartCanvas');
+        const ctx = canvas.getContext('2d');
+        let hearts = [];
+        function resize() { 
+            canvas.width = window.innerWidth; 
+            canvas.height = window.innerHeight; 
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class FloatingHeart {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + 20;
+                this.size = Math.random() * 15 + 10;
+                this.speed = Math.random() * 1 + 0.5;
+                this.opacity = Math.random() * 0.5 + 0.3;
+            }
+            update() { this.y -= this.speed; if(this.y < -20) this.reset(); }
+            draw() {
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = "#ff85a1";
+                ctx.font = this.size + "px serif";
+                ctx.fillText("❤️", this.x, this.y);
+            }
+        }
+        for(let i=0; i<30; i++) hearts.push(new FloatingHeart());
+        function animate() {
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            hearts.forEach(h => { h.update(); h.draw(); });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
